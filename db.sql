@@ -53,3 +53,14 @@ CREATE TABLE submissions (
     FOREIGN KEY (student_id) REFERENCES users(id)
 );
 
+CREATE TABLE attendance (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    class_id INT NOT NULL,
+    student_id INT NOT NULL,
+    date DATE NOT NULL,
+    status ENUM('present', 'absent') NOT NULL,
+    FOREIGN KEY (class_id) REFERENCES classes(id),
+    FOREIGN KEY (student_id) REFERENCES users(id)
+);
+
+
