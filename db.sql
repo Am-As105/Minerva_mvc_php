@@ -41,3 +41,15 @@ CREATE TABLE work_assignments (
     FOREIGN KEY (work_id) REFERENCES works(id),
     FOREIGN KEY (student_id) REFERENCES users(id)
 );
+
+CREATE TABLE submissions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    work_id INT NOT NULL,
+    student_id INT NOT NULL,
+    content TEXT,
+    file_path VARCHAR(255),
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (work_id) REFERENCES works(id),
+    FOREIGN KEY (student_id) REFERENCES users(id)
+);
+
